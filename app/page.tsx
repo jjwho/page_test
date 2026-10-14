@@ -3,6 +3,7 @@ import Footer from "./components/Footer";
 import Parallax from "./components/Parallax";
 import PixelSprite from "./components/PixelSprite";
 import Taipei101 from "./components/Taipei101";
+import LandmarkIcon from "./components/LandmarkIcon";
 
 type Spot = {
   id: string;
@@ -175,10 +176,17 @@ function SpotSection({ spot, index }: { spot: Spot; index: number }) {
           <p className={`mb-2 inline-block bg-px-ink px-2 py-1 text-xs ${spot.accent}`}>
             STAGE {spot.stage}
           </p>
-          <h2 id={`${spot.id}-title`} className="text-3xl md:text-4xl">
-            {spot.name}
-          </h2>
-          <p className="mt-1 text-xs tracking-widest text-px-slate">{spot.en}</p>
+          <div className="flex items-center gap-4">
+            <div className={`shrink-0 border-4 border-px-ink p-1 ${spot.bg}`}>
+              <LandmarkIcon id={spot.id} className="block h-16 w-16 md:h-20 md:w-20" />
+            </div>
+            <div>
+              <h2 id={`${spot.id}-title`} className="text-3xl md:text-4xl">
+                {spot.name}
+              </h2>
+              <p className="mt-1 text-xs tracking-widest text-px-slate">{spot.en}</p>
+            </div>
+          </div>
           <p className="mt-5 text-lg leading-relaxed">{spot.description}</p>
           <p className="mt-6 border-t-4 border-dashed border-px-silver pt-4 text-sm text-px-red">
             ▶ 野生的{spot.pokemon.name}出現了！
